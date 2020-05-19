@@ -31,10 +31,27 @@ void initialise_board(enum tile *board) {
   }
 }
 
+void player_turn(enum tile player, enum tile *board) {
+  printf("PLAYER %s's TURN\n", player == Naught ? "O" : "X");
+  // get user input
+  // validate it
+  // update board
+}
+
+int player_has_won(enum tile *board) { return 0; }
+
 int main(int argc, char *argv[]) {
   enum tile board[BOARD_SIZE * BOARD_SIZE];
+  enum tile player = Naught;
   initialise_board(board);
   printf("--- TIC-TAC-TOE ---\n\n");
-  display_board(board);
+  while (1) {
+    display_board(board);
+    player_turn(player, board);
+    if (player_has_won(board)) {
+      printf("PLAYER %s HAS WON\n", player == Naught ? "O" : "X");
+      break;
+    }
+  }
   return 0;
 }
