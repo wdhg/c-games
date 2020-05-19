@@ -60,6 +60,7 @@ int main(int argc, char *argv[]) {
       printf("PLAYER %s HAS WON\n", player == Naught ? "O" : "X");
       break;
     }
+    player = player == Naught ? Cross : Naught;
   }
   return 0;
 }
